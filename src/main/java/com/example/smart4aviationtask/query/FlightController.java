@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-@RequestMapping("airport")
+@RequestMapping("flight")
 @RequiredArgsConstructor
 public class FlightController {
 
