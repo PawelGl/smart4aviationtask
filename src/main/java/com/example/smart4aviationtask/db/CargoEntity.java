@@ -16,7 +16,6 @@ import java.util.List;
 @Setter
 public class CargoEntity {
 
-    private long id;
     @Id
     private int flightId;
     @Embedded

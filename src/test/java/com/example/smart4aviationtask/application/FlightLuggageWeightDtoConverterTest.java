@@ -35,7 +35,7 @@ class FlightLuggageWeightDtoConverterTest {
     }
 
     private Cargo cargoEntityFixture(final UUID flightId) {
-        return new Cargo(10L, flightId,
+        return new Cargo(flightId,
                 List.of(new Baggage(0, 20.0, "kg", 3), new Baggage(1, 20.0, "kg", 3)),
                 List.of(new Baggage(0, 20.0, "kg", 3)));
     }

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class FlightService {
-    private final FlightLuggageWeightDtoConverter flightLuggageWeightDtoConverter;
+    private static final FlightLuggageWeightDtoConverter flightLuggageWeightDtoConverter = new FlightLuggageWeightDtoConverter();
     private final FlightRepository flightRepository;
 
     public FlightLuggageWeightDto findFlightLuggageWeight(final int flightNumber, final Date date)
@@ -28,7 +28,7 @@ public class FlightService {
     }
 
     public PlanesInformationForAirportDto findInformationAboutPlanesForAirport(final String airportIATACode) throws PlanesForAirportNotFoundException {
-        List<Flight> flightEntities = Optional.of(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode))
+        List<Flight> flightEntities = Optional.of(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode, airportIATACode))
                 .orElseThrow(() -> new PlanesForAirportNotFoundException("Flights for airportIATACode: " + airportIATACode + " not found."));
         List<Flight> planesDepartingFromAirport = getPlanesDepartingFromAirport(airportIATACode, flightEntities);
         List<Flight> planesArrivingToAirport = getPlanesArrivingToAirport(airportIATACode, flightEntities);

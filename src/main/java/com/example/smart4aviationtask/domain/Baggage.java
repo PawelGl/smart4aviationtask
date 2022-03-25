@@ -4,6 +4,7 @@ package com.example.smart4aviationtask.domain;
 public class Baggage {
 
     private int id;
+    //TODO : weight + weightUnit = VO
     private final double weight;
     private final String weightUnit;
     private final int pieces;

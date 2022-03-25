@@ -9,5 +9,5 @@ public interface FlightRepository {
 
     Flight findByFlightNumberAndDepartureDate(final int flightNumber, final Date date);
 
-    List<Flight> findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(final String airportIATACode);
+    List<Flight> findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(final String departureAirportIATACode, final String arrivalAirportIATACode);
 }

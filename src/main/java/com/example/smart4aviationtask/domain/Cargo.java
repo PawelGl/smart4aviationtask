@@ -8,7 +8,6 @@ import java.util.UUID;
 @Value
 public class Cargo {
 
-    long id;
     UUID flightId;
     List<Baggage> baggage;
     List<Baggage> cargo;

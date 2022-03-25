@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,11 +19,6 @@ public class Smart4aviationtaskApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Smart4aviationtaskApplication.class, args);
-    }
-
-    @Bean
-    FlightLuggageWeightDtoConverter flightLuggageWeightDtoConverter() {
-        return new FlightLuggageWeightDtoConverter();
     }
 
     @Bean
@@ -40,7 +34,7 @@ public class Smart4aviationtaskApplication {
     }
 
     private Cargo cargoEntityFixture(final UUID flightId) {
-        return new Cargo(10L, flightId,
+        return new Cargo(flightId,
                 List.of(new Baggage(0, 20.0, "kg", 3), new Baggage(1, 20.0, "kg", 3)),
                 List.of(new Baggage(0, 20.0, "kg", 3)));
     }

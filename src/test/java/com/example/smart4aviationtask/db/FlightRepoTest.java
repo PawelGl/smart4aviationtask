@@ -1,7 +1,6 @@
 package com.example.smart4aviationtask.db;
 
 
-import com.example.smart4aviationtask.db.FlightRepo;
 import com.example.smart4aviationtask.domain.Baggage;
 import com.example.smart4aviationtask.domain.Cargo;
 import com.example.smart4aviationtask.domain.Flight;
@@ -18,7 +17,7 @@ class FlightRepoTest {
     private static List<Flight> FLIGHT_ENTITY_LIST;
 
     @Test
-    public void should_return_planes_with_correct_arrivalAirport_or_departureAirport() {
+    public void should_return_planes_with_correct_arrival_airport_or_departure_airport() {
         //given
         FLIGHT_ENTITY_LIST = List.of(flightEntityFixture("KRA", "WAW"),
                 flightEntityFixture("CWA", "KRA"),
@@ -26,7 +25,7 @@ class FlightRepoTest {
                 flightEntityFixture("CWA", "WRA"));
 
         //when
-        List<Flight> kraPlanes = new FlightRepo(FLIGHT_ENTITY_LIST).findAllByDepartureAirportIATACodeOrArrivalAirportIATACode("KRA");
+        List<Flight> kraPlanes = new FlightRepo(FLIGHT_ENTITY_LIST).findAllByDepartureAirportIATACodeOrArrivalAirportIATACode("KRA", "KRA");
 
         //then
         Assertions.assertNotNull(kraPlanes);
@@ -41,7 +40,7 @@ class FlightRepoTest {
     }
 
     private Cargo cargoEntityFixture(final UUID flightId) {
-        return new Cargo(10L, flightId,
+        return new Cargo(flightId,
                 List.of(new Baggage(0, 20.0, "kg", 3), new Baggage(1, 20.0, "kg", 3)),
                 List.of(new Baggage(0, 20.0, "kg", 3)));
     }
