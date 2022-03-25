@@ -21,14 +21,14 @@ public class FlightService {
     public FlightLuggageWeightDto findFlightLuggageWeight(final int flightNumber, final Date date)
             throws FlightNotFoundException {
         final Flight byFlightNumberAndDepartureDate =
-                Optional.of(flightRepository.findByFlightNumberAndDepartureDate(flightNumber, date))
+                Optional.ofNullable(flightRepository.findByFlightNumberAndDepartureDate(flightNumber, date))
                         .orElseThrow(() ->
                                 new FlightNotFoundException("Flight with number" + flightNumber + " and departure date  " + date + " not found."));
         return flightLuggageWeightDtoConverter.convert(byFlightNumberAndDepartureDate);
     }
 
     public PlanesInformationForAirportDto findInformationAboutPlanesForAirport(final String airportIATACode) throws PlanesForAirportNotFoundException {
-        List<Flight> flightEntities = Optional.of(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode, airportIATACode))
+        List<Flight> flightEntities = Optional.ofNullable(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode, airportIATACode))
                 .orElseThrow(() -> new PlanesForAirportNotFoundException("Flights for airportIATACode: " + airportIATACode + " not found."));
         List<Flight> planesDepartingFromAirport = getPlanesDepartingFromAirport(airportIATACode, flightEntities);
         List<Flight> planesArrivingToAirport = getPlanesArrivingToAirport(airportIATACode, flightEntities);
