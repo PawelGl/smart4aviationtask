@@ -28,10 +28,10 @@ public class FlightService {
     }
 
     public PlanesInformationForAirportDto findInformationAboutPlanesForAirport(final String airportIATACode) throws PlanesForAirportNotFoundException {
-        List<Flight> flightEntities = Optional.ofNullable(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode, airportIATACode))
+        final List<Flight> flightEntities = Optional.ofNullable(flightRepository.findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(airportIATACode, airportIATACode))
                 .orElseThrow(() -> new PlanesForAirportNotFoundException("Flights for airportIATACode: " + airportIATACode + " not found."));
-        List<Flight> planesDepartingFromAirport = getPlanesDepartingFromAirport(airportIATACode, flightEntities);
-        List<Flight> planesArrivingToAirport = getPlanesArrivingToAirport(airportIATACode, flightEntities);
+        final List<Flight> planesDepartingFromAirport = getPlanesDepartingFromAirport(airportIATACode, flightEntities);
+        final List<Flight> planesArrivingToAirport = getPlanesArrivingToAirport(airportIATACode, flightEntities);
         return new PlanesInformationForAirportDto(planesDepartingFromAirport.size(), planesArrivingToAirport.size(),
                 getAllPiecesOfBaggageForPlanes(planesDepartingFromAirport), getAllPiecesOfBaggageForPlanes(planesArrivingToAirport));
     }

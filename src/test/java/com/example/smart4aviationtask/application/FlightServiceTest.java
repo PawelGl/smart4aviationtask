@@ -7,13 +7,10 @@ import com.example.smart4aviationtask.domain.Baggage;
 import com.example.smart4aviationtask.domain.Cargo;
 import com.example.smart4aviationtask.domain.Flight;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.Instant;
@@ -21,7 +18,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -91,6 +89,6 @@ public class FlightServiceTest {
     }
 
     private PlanesInformationForAirportDto planesInformationForAirportDtoExpectedFixture() {
-        return new PlanesInformationForAirportDto(1,1,6,6);
+        return new PlanesInformationForAirportDto(1, 1, 6, 6);
     }
 }

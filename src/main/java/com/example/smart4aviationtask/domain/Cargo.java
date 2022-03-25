@@ -13,26 +13,17 @@ public class Cargo {
     List<Baggage> cargo;
 
     public double getFullBaggageWeight() {
-        double weight = 0;
-        for (Baggage baggage1 : baggage) {
-            weight += baggage1.getFullWeightInKG();
-        }
-        return weight;
+        return baggage.stream()
+                .reduce(0D, (subtotalWeight, baggageWeight) -> subtotalWeight + baggageWeight.getFullWeightInKG(), Double::sum);
     }
 
     public double getFullCargoWeight() {
-        double weight = 0;
-        for (Baggage cargo1 : cargo) {
-            weight += cargo1.getFullWeightInKG();
-        }
-        return weight;
+        return cargo.stream()
+                .reduce(0D, (subtotalWeight, cargoWeight) -> subtotalWeight + cargoWeight.getFullWeightInKG(), Double::sum);
     }
 
     int getAllBaggagePieces() {
-        int pieces = 0;
-        for (Baggage baggage1 : baggage) {
-            pieces += baggage1.getPieces();
-        }
-        return pieces;
+        return baggage.stream()
+                .reduce(0, (subtotalWeight, baggagePieces) -> subtotalWeight + baggagePieces.getPieces(), Integer::sum);
     }
 }

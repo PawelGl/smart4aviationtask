@@ -11,5 +11,4 @@ public class PlanesInformationForAirportDto {
     private final int totalNumberOfBaggageDepartingFromAirport;
     private final int totalNumberOfBaggageArrivingToAirport;
 
-
 }

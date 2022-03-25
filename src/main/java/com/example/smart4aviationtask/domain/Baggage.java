@@ -1,20 +1,15 @@
 package com.example.smart4aviationtask.domain;
 
+import lombok.Value;
 
+@Value
 public class Baggage {
 
-    private int id;
+    int id;
     //TODO : weight + weightUnit = VO
-    private final double weight;
-    private final String weightUnit;
-    private final int pieces;
-
-    public Baggage(final int id, final double weight, final String weightUnit, final int pieces) {
-        this.id = id;
-        this.weight = weight;
-        this.weightUnit = weightUnit;
-        this.pieces = pieces;
-    }
+    double weight;
+    String weightUnit;
+    int pieces;
 
     double getFullWeightInKG() {
         if (weightUnit.equals("kg")) {

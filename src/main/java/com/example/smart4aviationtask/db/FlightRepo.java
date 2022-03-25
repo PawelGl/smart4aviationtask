@@ -20,7 +20,7 @@ public class FlightRepo implements FlightRepository {
     }
 
     @Override
-    public List<Flight> findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(final String departureAirportIATACode, final String arrivalAirportIATACode){
+    public List<Flight> findAllByDepartureAirportIATACodeOrArrivalAirportIATACode(final String departureAirportIATACode, final String arrivalAirportIATACode) {
         return flightList.stream().filter(flightEntity -> flightEntity.getDepartureAirportIATACode().equals(departureAirportIATACode)
                 || flightEntity.getArrivalAirportIATACode().equals(arrivalAirportIATACode)).collect(Collectors.toList());
     }

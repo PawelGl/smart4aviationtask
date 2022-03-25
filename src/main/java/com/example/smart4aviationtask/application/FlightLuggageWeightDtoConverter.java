@@ -8,6 +8,5 @@ public class FlightLuggageWeightDtoConverter {
    FlightLuggageWeightDto convert(final Flight flight) {
         return new FlightLuggageWeightDto(flight.getCargo().getFullCargoWeight(),
                 flight.getCargo().getFullBaggageWeight());
-
     }
 }

@@ -14,11 +14,11 @@ import java.util.UUID;
 public class FlightEntity {
     @Id
     @GeneratedValue
-    UUID flightId;
-    int flightNumber;
-    String departureAirportIATACode;
-    String arrivalAirportIATACode;
-    Instant departureDate;
+    private UUID flightId;
+    private int flightNumber;
+    private String departureAirportIATACode;
+    private String arrivalAirportIATACode;
+    private Instant departureDate;
     @OneToOne
-    CargoEntity cargo;
+    private CargoEntity cargo;
 }
