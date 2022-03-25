@@ -1,4 +1,4 @@
-package com.example.smart4aviationtask.application;
+package com.example.smart4aviationtask.db;
 
 
 import com.example.smart4aviationtask.db.FlightRepo;
