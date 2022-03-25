@@ -47,10 +47,6 @@ public class FlightService {
     }
 
     private int getAllPiecesOfBaggageForPlanes(final List<Flight> flightEntities) {
-        int pieces = 0;
-        for (Flight flight : flightEntities) {
-            pieces += flight.getAllBaggagePieces();
-        }
-        return pieces;
+        return flightEntities.stream().reduce(0, (pieces, flight) -> pieces + flight.getAllBaggagePieces(), Integer::sum);
     }
 }
