@@ -3,12 +3,13 @@ package com.example.smart4aviationtask.domain;
 import lombok.Value;
 
 import java.util.List;
+import java.util.UUID;
 
 @Value
 public class Cargo {
 
     long id;
-    int flightId;
+    UUID flightId;
     List<Baggage> baggage;
     List<Baggage> cargo;
 

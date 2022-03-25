@@ -29,12 +29,13 @@ class FlightLuggageWeightDtoConverterTest {
     }
 
     private Flight flightEntityFixture() {
-        return new Flight(UUID.randomUUID(), 123,
-                "KRA", "WAW", Instant.now(), cargoEntityFixture());
+        final UUID flightId = UUID.randomUUID();
+        return new Flight(flightId, 123,
+                "KRA", "WAW", Instant.now(), cargoEntityFixture(flightId));
     }
 
-    private Cargo cargoEntityFixture() {
-        return new Cargo(10L, 123,
+    private Cargo cargoEntityFixture(final UUID flightId) {
+        return new Cargo(10L, flightId,
                 List.of(new Baggage(0, 20.0, "kg", 3), new Baggage(1, 20.0, "kg", 3)),
                 List.of(new Baggage(0, 20.0, "kg", 3)));
     }
